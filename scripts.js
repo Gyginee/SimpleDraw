@@ -1,3 +1,5 @@
+import config from './config.js';
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -22,6 +24,7 @@ function saveTemp(numSave) {
 function roll(min, max) {
     var num = getRndInteger(min, max);
     var zeroString = "";
+    var numSave = "";
 
     if (num.toString().length < max.toString().length) {
         var zeroNum = max.toString().length - num.toString().length;
@@ -63,7 +66,7 @@ function reload() {
 function exportData() {
     var data = localStorage.getItem("tempNumber"); // Lấy dữ liệu từ localStorage
     var dataArray = JSON.parse(data); // Chuyển chuỗi JSON thành mảng dữ liệu
-
+    if(dataArray == null) return alert('Data not exists');
     var xlsData = []; // Mảng dữ liệu cho file XLS
     xlsData.push(["Index", "Value"]); // Thêm hàng tiêu đề của cột
 
@@ -89,7 +92,20 @@ function exportData() {
     a.click();
 }
 
-window.onload = function(){
+function draw(){
+    roll(config.min,config.max);
     showTemp();
 }
-document.getElementById("btnDraw").addEventListener("click", showTemp);
+
+window.onload = function(){
+    showTemp();
+    document.getElementById("number").innerHTML = "0".repeat(config.max.toString().length);
+}
+
+
+document.getElementById("btnDraw").addEventListener("click", draw);
+
+document.getElementById("btnExport").addEventListener("click", exportData);
+
+document.getElementById("btnReload").addEventListener("click", reload);
+

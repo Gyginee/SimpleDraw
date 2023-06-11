@@ -8,8 +8,6 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-   
-
 
     <title>Simple Draw</title>
 </head>
@@ -20,9 +18,9 @@
             <p class="textNumber" id="number">0000</p>
         </div>
         <div>
-            <button type="button" class="btn btn-success" onClick="exportData()" >Export</button>
-            <input onclick="roll(0,9999)" id="btnDraw" class="btn btn-outline-primary" type="button" value="Draw">
-            <button type="button" class="btn btn-danger" onClick="reload()" >Clear</button>
+            <button type="button" id="btnExport" class="btn btn-success" >Export</button>
+            <input id="btnDraw" class="btn btn-outline-primary" type="button" value="Draw">
+            <button type="button" id="btnReload" class="btn btn-danger" >Clear</button>
         </div>
     </div>
     <div class="table-responsive">
@@ -37,7 +35,7 @@
             </tbody>
         </table>
     </div>
-    <script src="scripts.js"> </script>
+    <script src="scripts.js" type="module"></script>
 </body>
 
 </html>
