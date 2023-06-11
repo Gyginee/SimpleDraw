@@ -1,0 +1,23 @@
+body {
+    margin: 5%;
+    padding: 0;
+}
+
+.drawForm {
+    max-width: max-content;
+    max-height: max-content;
+    margin: 0 auto;
+    text-align: center;
+}
+.textNumber{
+    font-size: 150px;
+}
+.btn-outline-primary{
+    width: 300px;
+    height: 60px;
+}
+
+.table-responsive{
+    margin: 5%;
+   text-align: center;
+}
